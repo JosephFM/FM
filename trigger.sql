@@ -1,2 +1,11 @@
-MariaDB [lab]> create trigger trig_1 before insert on lab.stud for each row begin if new.roll<0 then set new.roll=2-new.roll; end if ; end;//
-Query OK, 0 rows affected (0.13 sec)
+CREATE TABLE animals (id mediumint(9) 
+NOT NULL AUTO_INCREMENT, 
+name char(30) NOT NULL, 
+PRIMARY KEY (`id`));
+
+CREATE TABLE animal_count (animals int);
+
+CREATE TRIGGER increment_animal 
+AFTER INSERT ON animals 
+FOR EACH ROW 
+UPDATE animal_count SET animal_count.animals = animal_count.animals+1;
