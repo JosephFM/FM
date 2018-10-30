@@ -1,0 +1,1 @@
+SELECT IF (1=1,'TRUE','FALSE');
